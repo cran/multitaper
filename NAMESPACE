@@ -1,0 +1,3 @@
+exportPattern("^[^\\.]")
+useDynLib(multitaper)
+S3method(plot, mtm)
