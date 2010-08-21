@@ -50,6 +50,22 @@ subroutine dpss (n, k, nw, v, ev)
   integer, pointer :: blockIntMem(:)
   logical :: is_evenN
   character :: cmach
+
+  ! interface block added to conform with f90 standard.
+  ! In response to bug reported by Brian Ripley July 25, 2010
+  interface
+     subroutine tridiagMatrixEigen(n, k, d, e, v, ldv, ev, &
+          abstol, blockIntMem, work)
+       implicit none
+       character :: range, order, cmach
+       integer :: nsplit, m, info
+       integer, target :: blockIntMem(5*n+k)
+       integer,  pointer :: iblock(:), isplit(:), iwork(:), ifail(:)
+       integer :: k, ldv, n, il
+       double precision :: vl, vu, abstol
+       double precision :: d(n), e(n-1), v(ldv,k),  ev(n), work(5*n)
+     end subroutine tridiagMatrixEigen
+  end interface
   
   w = nw/dble(n)
   ctpw =  dcos(twopi*w)
