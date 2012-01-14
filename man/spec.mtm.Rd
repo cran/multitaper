@@ -30,10 +30,10 @@
    Computes and plots the adaptive multitaper spectrum estimate.
 }
 \usage{
-resSpec <- spec.mtm(timeSeries, k, nw, nFFT = "default",
+spec.mtm(timeSeries, k, nw, nFFT = "default",
 centreWithSlepians = TRUE, dpssIN = NULL, returnZeroFreq = TRUE, Ftest =
 FALSE, jackknife = FALSE, jkCIProb = 0.95, maxAdaptiveIterations = 100,
-plot = TRUE, na.action = na.fail, ...) 
+plot = TRUE, na.action = na.fail, returnInternals=FALSE, ...) 
 
 }
 \arguments{
@@ -46,6 +46,7 @@ created by the ts() function where deltat is specified.}
 indicates the total length of the data after padding.}
   \item{centreWithSlepians}{The data series is centred using an
 expansion into the Slepian's (dpss).}
+  \item{dpssIN}{This allows one to pass in a dpss object, and prevents unnecessiary calculation of the dpss. This can be used when making several calls to spec.mtm using a time series of the same length and with the same bandwidth.}
   \item{returnZeroFreq}{Boolean variable indicating if the zeroth
 frequency (DC component) should be returned.}
   \item{Ftest}{Boolean variable indicating if the Ftest result should be
@@ -60,6 +61,8 @@ adaptive multitaper calculation, generally convergence is quick.}
   \item{plot}{Boolean variable indicating if the spectrum should be plot}
   \item{na.action}{action to take if NA's exist in the data, the default
 is to fail.}
+  \item{returnInternals}{This returns the internals, which can be used in currently undocumented spectral estimation techniques using this package.}
+  \item{...}{This has only been tested to allow addtional plotting parameters to be passed into the plot function.}
 }
 \references{
 Thomson, D.J (1982)

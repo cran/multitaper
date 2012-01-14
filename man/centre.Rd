@@ -32,7 +32,7 @@
   subtracts the mean or trim mean.
 }
 \usage{
-centredDat <- centre(x, nw = NULL, k = NULL, deltaT = NULL, trim = 0)
+centre(x, nw = NULL, k = NULL, deltaT = NULL, trim = 0)
 }
 \arguments{
   \item{x}{x the data as a vector or as a time series.}
