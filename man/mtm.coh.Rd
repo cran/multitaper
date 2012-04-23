@@ -24,43 +24,42 @@
 %     112 Jeffery Hall, Queen's University, Kingston Ontario
 %     Canada, K7L 3N6
 
-\name{dpss}
-\alias{dpss}
-\title{Compute Discrete Prolate Spheroidal Sequences}
+\name{mtm.coh}
+\alias{mtm.coh}
+\title{Compute and plot the multitaper magnitude-squared coherence.}
 \description{
-   Compute Discrete Prolate Spheroidal Sequences for use as
-   tapers or other applications. This function uses the tridiagonal method and exploits
-   symmetry. Note the odd order tapers are normalized so that the slope at the
-   centre is positive in accordance with Slepian (1978) and Thomson (1982). This
-   differs from Percival and Walden (1993).
+   Computes and plots the adaptive multitaper spectrum estimate.
 }
 \usage{
-dpss(n,k,nw, returnEigenvalues=TRUE)
+mtm.coh(mtm1, mtm2, fr=NULL, tau=0, plot=TRUE, ...) 
 }
 \arguments{
-  \item{n}{A positive integer, typically the non-zero-padded length of the time series.}
-  \item{k}{A positive integer, the number of tapers, often 2*nw for spectrum estimation purposes.}
-  \item{nw}{A positive double-precision number, the time-bandwidth
-    parameter.}
-  \item{returnEigenvalues}{If true the appropriate eigenvalues are
-    calculated and returned using the function dpssToEigenvalues.}
+  \item{mtm1}{An object created with spec.mtm(... ,returnInternals=TRUE).}
+  \item{mtm2}{An object created with spec.mtm(... ,returnInternals=TRUE). 
+    Note mtm1 and mtm2 must be created with the same frequency resolution. 
+    They both must have the same values for nFFT and returnZeroFreq.} 
+  \item{fr}{The frequency values for the mtm object. This can be null by
+    default (which results in computation for the full frequency range) or 
+    it can be a subset of frequency values.}
+  \item{tau}{Phase-correction factor, if known.}
+  \item{plot}{Boolean value indicating if a plot should be drawn.}
+  \item{...}{Additional parameters, such as xaxs="i" which are passed through to
+    the plotting function.} 
 }
 \references{
 Thomson, D.J (1982)
 Spectrum estimation and harmonic analysis. \emph{Proceedings of the IEEE}
 Volume \bold{70}, number 9, pp. 1055--1096.
 
-Slepian, D. (1978)
-Prolate spheroidal wave functions, Fourier analysis, and
-uncertainty. V--The discrete case. \emph{Bell System Technical Journal}
-Volume \bold{57}, pp. 1371--1430
-
 Percival, D.B. and Walden, A.T. (1993)
-\emph{Spectral analysis for physical applications.}
-Cambridge University Press.
+\emph{Spectral analysis for physical applications}
+Cambridge University Press. 
 }
 \examples{
-dpss(10,4,4.0)
-dpss(100,8,5.0)
+data(HadCRUTnh)
+data(mlco2)
+spec1 <- spec.mtm(HadCRUTnh, nw=5.0, k=8, plot=FALSE, returnInternals=TRUE, dtUnits="month", dT=1.0)
+spec2 <- spec.mtm(mlco2, nw=5.0, k=8, plot=FALSE, returnInternals=TRUE, dtUnits="month", dT=1.0)
+mtm.coh(spec1, spec2)
 }
-\keyword{math}
+\keyword{multitaper}

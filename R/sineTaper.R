@@ -2,7 +2,7 @@
 ##     Multitaper and spectral analysis package for R
 ##     Copyright (C) 2011 Karim Rahim 
 ##
-##     Written by Karim Rahim.
+##     Written by Wesley Burr.
 ##
 ##     This file is part of the multitaper package for R.
 ##     http://cran.r-project.org/web/packages/multitaper/index.html
@@ -27,10 +27,38 @@
 ##     112 Jeffery Hall, Queen's University, Kingston Ontario
 ##     Canada, K7L 3N6
 
-.dpssV <- function(obj) obj$v
 
-.dpssEigen <- function(obj) obj$eigen
+####################################################################
+##
+##  sineTaper
+##
+##  Generates k sine tapers of length n. These are not actually
+##  used in the \pkg{multitaper} implementation of the sine-tapered
+##  multiple taper spectrum estimate, but are provided for 
+##  plotting and transfer function purposes.
+##
+##  ref: Kurt S. Riedel and Alexander Sidorenko 
+## 
+####################################################################
 
-.is.dpss <- function(obj) {
-    return( sum ( "dpss"==class(obj) ) >= 1 )
+sineTaper <- function(n, k) {
+
+    stopifnot(n >= 8, k >= 1)
+
+    coef1 <- as.double(sqrt(2/(n+1)))
+    coef2 <- as.double((pi/(n+1))*seq(1,n,1))
+    kmat <- matrix(data=as.double(rep(seq(1,n),each=k)),nrow=n,ncol=k)
+    
+    taper <- coef1*sin(coef2*kmat)
+
+    out <- NULL
+    out$v <- as.matrix(taper) 
+
+    # include k in object since these tapers are not always computed
+    # in context of a mtm object.
+    res <- list(v=out$v,
+                eigen=NULL,
+                k=k)
+    class(res) <- "dpss"
+    return(res)
 }

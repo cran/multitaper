@@ -2,7 +2,7 @@
 ##     Multitaper and spectral analysis package for R
 ##     Copyright (C) 2011 Karim Rahim 
 ##
-##     Written by Karim Rahim.
+##     Written by Karim Rahim and Wesley Burr.
 ##
 ##     This file is part of the multitaper package for R.
 ##     http://cran.r-project.org/web/packages/multitaper/index.html
@@ -27,10 +27,40 @@
 ##     112 Jeffery Hall, Queen's University, Kingston Ontario
 ##     Canada, K7L 3N6
 
-.dpssV <- function(obj) obj$v
 
-.dpssEigen <- function(obj) obj$eigen
+##############################################################
+##
+##  multitaperTrend 
+##
+##  Utility routine that computes multitaper-based linear
+##  trend line. Has improved spectral properties over 
+##  traditional least-squares. Returns intercept and slope.
+##
+##############################################################
+multitaperTrend = function(xd, B, dT, t.in) {
 
-.is.dpss <- function(obj) {
-    return( sum ( "dpss"==class(obj) ) >= 1 )
+  N <- length(t.in)
+  w <- B*dT
+
+  if(length(xd)!=N) { stop("Time array and data array not the same length!")} 
+  if((B <= 0) || (B > 0.5)) { stop("B outside acceptable limits: 0 < B < 0.5.")}
+
+  ttbar <- t.in - (t.in[N]+t.in[1])/2
+  k <- floor(2*N*w -1)
+  vt <- (dpss(N,k=k,nw=N*w))$v
+  vk <- colSums(vt)
+
+  # solve for a
+  subsel <- seq(1,k,by=2)
+  vk <- colSums(vt)[subsel]
+  xk <- colSums(xd*vt[,subsel])
+  a <- sum(xk*vk) / sum(vk*vk)
+
+  # solve for b
+  subsel <- seq(2,k,by=2)
+  tvk <- colSums(ttbar*vt[,subsel])
+  xk <- colSums(xd*vt[,subsel])
+  b <- sum(tvk*xk)/sum(tvk*tvk)
+
+  return(list(a,b,ttbar))
 }
