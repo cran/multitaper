@@ -233,7 +233,9 @@ spec.mtm <- function(timeSeries,
     swz <- NULL ## Percival and Walden H0
     ssqswz <- NULL
     swz <- apply(dw, 2, sum)
-    swz[seq(2,k,2)] <- 0
+    if(k >= 2) {
+      swz[seq(2,k,2)] <- 0
+    }
     ssqswz <- as.numeric(t(swz)%*%swz)
 
     taperedData <- dw * timeSeries
@@ -507,7 +509,9 @@ centre <- function(x, nw=NULL, k=NULL, deltaT=NULL, trim=0) {
         ev <- dpssRes$eigen
         swz <- apply(dw, 2, sum)
         ## zero swz where theoretically zero; odd tapers
-        swz[seq(2,k,2)] <- 0.0
+        if(k >=2) {
+          swz[seq(2,k,2)] <- 0.0
+        }
         ssqswz <- sum(swz^2)
         if(!is.complex(x)) {
           res <- .mweave(x, dw, swz,

@@ -1,4 +1,4 @@
-e0ee9695a314f0e1ae5a42c8159a6160 *DESCRIPTION
+8059bec6d29eaa39ab3fb9765122bc68 *DESCRIPTION
 a41ad1c85f8bc03e14593891be09cf09 *LICENSE/LICENSE
 8fd9912ad823e1c4ec87c65e6a7f5d34 *NAMESPACE
 d51caba2a9cfb8cfb1f98d24fefc271b *R/demod.R
@@ -6,9 +6,9 @@ c9b45f42a912d89a2c0e3d7bf86cdfdc *R/dpss.R
 51021e06ab76dfc44401b390822913c6 *R/dpssHelpers.R
 424bbe302393de2c0a21422448d65eff *R/dropFreqs.R
 c5113a21a70d3e0e06ff303231ee1f13 *R/firstlib.R
-1f665fb782b0c9121d25a57eb2f6da40 *R/multitaper.R
+2bc110ce0033f6b43271b3a9897a9703 *R/multitaper.R
 3821123d27167571607c890b7b1ed194 *R/multitaperHelper.R
-fe25981c5a8f24a8f624edba15acddf0 *R/plots.R
+b71138f6f60dd8476e016bd62fc04adf *R/plots.R
 7921bbdb8d4a712313c6ade034fb4d18 *R/plotsHelper.R
 a93b0bbb690bf20f6b80ecc249af5bc5 *R/sineTaper.R
 353f2dc9fb95f6f2be0864449b47bbc8 *R/utility.R
