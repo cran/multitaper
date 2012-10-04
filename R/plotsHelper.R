@@ -20,6 +20,7 @@
 ##     You should have received a copy of the GNU General Public License
 ##     along with multitaper.  If not, see <http://www.gnu.org/licenses/>.
 ##
+##
 ##     If you wish to report bugs please contact the author:
 ## 
 ##     Karim Rahim
@@ -27,6 +28,7 @@
 ##     112 Jeffery Hall, Queen's University, Kingston Ontario
 ##     Canada, K7L 3N6
 
+## siglines degrees of freedom correction Oct 4, 2012 karim
 
 ##################################################################
 ##
@@ -62,17 +64,18 @@
 
     plot(x$freq, ftestVals, log=ylog, ylab=ylab, xlab=xlab, 
          ylim=c(ftbase,ftmax), type="l",...)
-
-    # add siglines if defined
+    
+    ## add siglines if defined
     if(!is.null(siglines)) {
-      for(j in 1:length(siglines)) {
-        if(is.numeric(siglines[j]) && 0.80 <= siglines[j] && 1.000000 >= siglines[j]) {
-          sig0 <- qf(siglines[j],2,x$mtm$k) 
-          abline(h=sig0, col="red", lty=2, lwd=1) 
-          mtext(paste(siglines[j]*100,"%",sep=""), side=4, line=0, at=ceiling(sig0), col="red")
-        }
-      } # end for
-    } # end logical
+        for(j in 1:length(siglines)) {
+            if(is.numeric(siglines[j]) && 0.80 <= siglines[j] && 1.000000 >= siglines[j]) {
+                ## degree of freedom correction P&W page 499 changed to 2, 2*k-2 date Sept 30 2012
+                sig0 <- qf(siglines[j],2,2*x$mtm$k-2) 
+                abline(h=sig0, col="red", lty=2, lwd=1) 
+                mtext(paste(siglines[j]*100,"%",sep=""), side=4, line=0, at=ceiling(sig0), col="red")
+            }
+        } ## end for
+    } ## end logical
 }
 
 
