@@ -57,7 +57,7 @@ indicates the total length of the data after padding.}
     been created. This can save computation time when Slepians with
  the same bandwidth parameter and same number of tapers are used repeatedly.}
   \item{returnZeroFreq}{Boolean variable indicating if the zeroth
-frequency (DC component) should be returned for all applicable arrays.}
+    frequency (DC component) should be returned for all applicable arrays.}
   \item{Ftest}{Boolean variable indicating if the Ftest result should be
  computed and returned.}
   \item{jackknife}{Boolean variable indicating if jackknifed confidence
@@ -76,9 +76,12 @@ require less than 100 iterations.}
     magnitude-squared coherence (function mtm.coh in this package). Note:
   The internal ($mtm) variables eigenCoefs and eigenCoefWt correspond to
 the multitaper eigencoefficients. The eigencoefficients correspond to
-equation (3.4) and weights correspond to |d_k(f)^2 from equation
+equation (3.4) and weights correspond to |d_k(f)|^2 from equation
  (5.4) in Thomson's 1982 paper. The values sqrt(eigenCoefWt) *
- eigenCoefs are most commonly used in additional calculations.}
+ eigenCoefs are most commonly used in additional calculations. The
+ values returned in mtm$cmv correspond to the the estimate of the
+ coefficients hat(mu)(f) in equation (13.5) in Thomson (1982), or to the
+ estimate of hat(C)_1 at frequency 1 in equation (499) form Percival and Walden (1993)}
   \item{sineAdaptive}{In the case of using the sine taper method, choose between
   non-adaptive and adaptive taper choice.}
   \item{sineSmoothFact}{The sine taper option has an inherent smoothing parameter that
@@ -90,6 +93,10 @@ equation (3.4) and weights correspond to |d_k(f)^2 from equation
   \item{...}{Additional parameters, such as xaxs="i" which are passed to
     the plotting function. Not all parameters are supported.} 
 }
+\details{
+  The value log can be set to \dQuote{yes} (default), \dQuote{no}, or \dQuote{dB}
+  as in the function plot.spec.}
+\seealso{ \code{\link{plot.mtm}} and \code{\link{plot.spec}} }
 \references{
 Thomson, D.J (1982)
 Spectrum estimation and harmonic analysis. \emph{Proceedings of the IEEE}
@@ -106,8 +113,8 @@ Volume \bold{43}, Number 1, pp. 188--195.
 \examples{
 # default behaviour, dpss tapers; dT and dtUnits set to ensure axis accuracy
 data(willamette)
-spec.mtm(willamette, nw=4.0, k=8, dT=1.0, dtUnits="month")
-spec.mtm(willamette, nw=4.0, k=8, nFFT=2048, dT=1.0, dtUnits="month")
+spec.mtm(willamette, nw=4.0, k=8, dT=1/12, dtUnits="month")
+spec.mtm(willamette, nw=4.0, k=8, nFFT=2048, dT=1/12, dtUnits="month")
 
 # if you have a ts object, you can skip the dT and dtUnits parameters
 will.ts <- ts(data=willamette, start=1950.75, freq=12)

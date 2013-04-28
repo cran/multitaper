@@ -1,6 +1,6 @@
 Package: multitaper
-Version: 1.0-3
-Date: 2013-03-20
+Version: 1.0-4
+Date: 2013-04-28
 Title: Multitaper Spectral Analysis
 Author: Karim Rahim <karim.rahim@gmail.com>, Wesley Burr
         <wburr@mast.queensu.ca>
@@ -11,10 +11,8 @@ Description: Generates Discrete Prolate Spheroidal Sequences, provides
         functions and utilities for multitaper spectral analysis and
         related problems.
 License: GPL (>= 2)
-URL: http://github.com/wesleyburr/multitaper/ or
-        https://github.com/krahim/multitaper
-LazyLoad: true
-Packaged: 2013-03-21 01:45:07 UTC; karim
+URL: http://github.com/wesleyburr/multitaper/
+Packaged: 2013-04-29 00:02:12 UTC; karim
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2013-03-21 07:29:25
+Date/Publication: 2013-04-29 07:24:00
