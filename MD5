@@ -1,4 +1,4 @@
-80041df696624832c7adfe4c0e62e0ff *DESCRIPTION
+8373be9af473c7e0f8496526c0ded5d2 *DESCRIPTION
 8fd9912ad823e1c4ec87c65e6a7f5d34 *NAMESPACE
 d51caba2a9cfb8cfb1f98d24fefc271b *R/demod.R
 469f2573699bd9491a73753da6e21c42 *R/dpss.R
@@ -6,12 +6,10 @@ d51caba2a9cfb8cfb1f98d24fefc271b *R/demod.R
 424bbe302393de2c0a21422448d65eff *R/dropFreqs.R
 5382aac03c8a91ce0a82fd0451b9e097 *R/multitaper.R
 258d4465152d70d072ba7516b4f3cb6e *R/multitaperHelper.R
-b71138f6f60dd8476e016bd62fc04adf *R/plots.R
-b61fdb6c2f010db24a4ef730217daf09 *R/plotsHelper.R
+372c7d5871420f2d6ce6c715ddfa8b88 *R/plots.R
+41b2949e3dc80b75e320cad4320166c7 *R/plotsHelper.R
 a93b0bbb690bf20f6b80ecc249af5bc5 *R/sineTaper.R
 353f2dc9fb95f6f2be0864449b47bbc8 *R/utility.R
-a85d07edda13b65bf219588f8ea495c0 *README.md
-d41d8cd98f00b204e9800998ecf8427e *autoscan.log
 0ce867df06dafbc04fc5b7c02ca7d5fb *configure.ac
 c195be9ad469ff1301ebec5c994609d0 *data/CETdaily.rda
 a778ebe3f5e5494c57710f0897df283d *data/CETmonthly.rda
@@ -28,13 +26,13 @@ db05de7461d588ff01d56defdd4ad243 *man/dpss.Rd
 975a744e799ef538a3df657598d40045 *man/dpssToEigenvalues.Rd
 5153123abdf8c15a6576153bed685628 *man/dropFreqs.Rd
 7141455178ea0fce5e85e00a605a5d92 *man/mlco2.Rd
-542a5648fb94bb0fa22945409477cddf *man/mtm.coh.Rd
+35b709c59f3984db0feed26f474c5590 *man/mtm.coh.Rd
 2e8e2ce28d9002bdfb1c6432babd8f72 *man/multitaperTrend.Rd
 35674bbc036663081715531b57bd8c9e *man/percivalAR4.Rd
 7914c8631f72c1d75478a3942d85330f *man/plot.mtm.Rd
-d0f0a2c6dce09090964091f8dd4b4f1a *man/plot.mtm.coh.Rd
+30eb00e627a13a870efb883831f5ba0d *man/plot.mtm.coh.Rd
 c29b7fe1385dfd54a3a71b825e50dcf3 *man/sineTaper.Rd
-b79f547114ee1aa4f1800f7f562b16ff *man/spec.mtm.Rd
+f79875ff5624415999552a3ab312df65 *man/spec.mtm.Rd
 eaea7a35394d3978df8274ea9facf88e *man/willamette.Rd
 fcf9457e1450e4bbcfea254a84c739d6 *src/Makevars
 0c19074da63121265efd8bb79686d64f *src/Makevars.in
