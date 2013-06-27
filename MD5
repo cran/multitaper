@@ -1,4 +1,4 @@
-8373be9af473c7e0f8496526c0ded5d2 *DESCRIPTION
+00fc7657ef888b28234a13ed222c636f *DESCRIPTION
 8fd9912ad823e1c4ec87c65e6a7f5d34 *NAMESPACE
 d51caba2a9cfb8cfb1f98d24fefc271b *R/demod.R
 469f2573699bd9491a73753da6e21c42 *R/dpss.R
@@ -17,11 +17,15 @@ e66a82df7e015af55fc9b62bba559fb3 *data/HadCRUTnh.rda
 4e8ee469b70c407411723d8ff43a0ae9 *data/mlco2.rda
 3c1cc41d60370a7a43925f50cd1cd49a *data/percivalAR4.rda
 da3c639de98b93d20a8b9aa9b266d77c *data/willamette.rda
+7e9c24036cd43b06f904e4974632d7cc *inst/doc/UsingFFTWinMultitaper.R
+e4f5aacdcbd785dadeac82d58f2233cb *inst/doc/UsingFFTWinMultitaper.Rnw
+cbabcf8fb87b4065d3f3ed868b5d02ad *inst/doc/UsingFFTWinMultitaper.pdf
+f5f785f1e073a215930bd4daf7222758 *inst/doc/vignette.bib
 6351e5482f153ac1695d73cba37cec3e *man/CETdaily.Rd
 f1679fd3cc77074d7f34741ea80e7a46 *man/CETmonthly.Rd
 aefcd7a743dc3bccbf39e903efc76491 *man/HadCRUTnh.Rd
 afba37c57b5d0e84635b6029c1a8976b *man/centre.Rd
-77b463bddeb62988ce5cb1c60c7b2aaf *man/demod.dpss.Rd
+fb5c5c143b5467240e88b5764dbf5a31 *man/demod.dpss.Rd
 db05de7461d588ff01d56defdd4ad243 *man/dpss.Rd
 975a744e799ef538a3df657598d40045 *man/dpssToEigenvalues.Rd
 5153123abdf8c15a6576153bed685628 *man/dropFreqs.Rd
