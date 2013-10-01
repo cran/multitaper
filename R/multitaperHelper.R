@@ -39,7 +39,15 @@
 }
 
 .HF4mp1 <- function(cft, swz, nord, ssqswz) {
-   
+
+    ## ######################################
+    ## The notation and function names were chosen
+    ## to map to original fortran (f77) code.
+    ## Note to obtain:  swz <- apply(dw, 2, sum)
+    ## swz is the zeroth frequency Fourier transform of the
+    ## Slepian sequences. It is H_k(0) from P ercival and Walden (1993)
+    ## pages 497--399.
+    ## (just to define dw) dw <- dpssIN$v*sqrt(deltaT)    
     ## Vectorized from original F77 code
     ## Equation (13.5) of:
     ##   Thomson, D.J. Spectrum Estimation and Harmonic Analysis,
@@ -64,7 +72,6 @@
     ## this is equation (5.3) and (5.4) form 
     ##   Thomson, D.J. Spectrum Estimation and Harmonic Analysis,
     ##   Proceedings of the IEEE, 1982.
-
     ## note that the weights are squared, they are |d_k(f)^2 from equation
     ## (5.4)
 

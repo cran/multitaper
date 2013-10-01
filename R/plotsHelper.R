@@ -47,9 +47,10 @@
     if(is.null(x$mtm$Ftest) || !("Ftest" %in% class(x))) {
       stop(paste("Ftest not computed for given mtm object!"))
     }
-   
-    log <- match.call(expand.dots = )$log
-    ylab <- match.call(expand.dots = )$ylab
+
+    arglist <- list(...)
+    log <- arglist$log ##match.call(expand.dots = )$log
+    ylab <- arglist$ylab ##match.call(expand.dots = )$ylab
 
     if(is.null(ylab)) ylab <- "Harmonic F-test Statistic"
     
@@ -62,8 +63,8 @@
     ftestVals[ftestVals < ftbase] <- ftbase
     ftmax <- max(ftestVals)
 
-    plot(x$freq, ftestVals, log=ylog, ylab=ylab, xlab=xlab, 
-         ylim=c(ftbase,ftmax), type="l",...)
+    .lplotDefault(x$freq, ftestVals, log=ylog, ylab=ylab, xlab=xlab, 
+                 ylim=c(ftbase,ftmax), type="l",...)
     
     ## add siglines if defined
     if(!is.null(siglines)) {
@@ -78,6 +79,22 @@
     } ## end logical
 }
 
+## this is a hack method to strip depreciated hidden parameters.
+## This suggestion is from Gavin Simpson's blog and he traces it
+## to a suggestion from Brian Ripley
+## see: http://ucfagls.wordpress.com/2011/07/23/
+## local hidden plotting routine to strip depreciated parameter
+## dT from arguments lost
+.lplotSpec <- function(x, ..., dT) {
+    ## should call plot.spec prior to 3.1 dev.
+    plot(x, ...)
+}
+
+## this is currently used in F--test plots.
+.lplotDefault <- function(x, y, ..., dT) {
+    ## should call plot default 
+    plot(x, y, ...)
+}
 
 ## utilities functions added for plot.mtm.coh
 ## fortran versions exist and could be cleaned up and implemented...
@@ -115,7 +132,7 @@
 ##Segment averaging can be looked into and implemented
 ##Segment averaging can likely be vectorized or should it be
 ##implemented in C?
-## Dave sets ip=2 in ./odinlibs-1.1/src/ts/lftr3p.f
+## Dave sets ip=2 in the file ts/lftr3p.f
 .llftr7 <- function(x,nhi,lohi,slo,shi,neh,ip) {
 
     nlo <- 1
@@ -153,10 +170,12 @@
     }
 
     ## High End
+    ## Programmer's note: The numbers map to numbers on do loops
+    ## in Thomson's fortran code.
     if(tolower(shi) == "even") {
         for( j in  1:neh) { ## 850
             z[zNhi+j] <- z[zNhi-j]
-        } ## 850
+        } ## 850 
     }
 
     if(tolower(shi) == "odd") {
@@ -185,8 +204,7 @@
     }
 
     zOffSetSeq <- 1:(2*neh+1)
-    for (n in nlo:nhi) { ## 2000
-        ##print(n)
+    for (n in nlo:nhi) { ## 2000 
         y[n] <- sum(wt*z[zOffSetSeq])
         zOffSetSeq <- zOffSetSeq +1
     } ## 2000
