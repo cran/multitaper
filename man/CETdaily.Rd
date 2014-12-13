@@ -21,14 +21,12 @@
 %
 %     If you wish to report bugs please contact the author. 
 %     karim.rahim@gmail.com
-%     112 Jeffery Hall, Queen's University, Kingston Ontario
-%     Canada, K7L 3N6
 
 \name{CETdaily}
 \alias{CETdaily}
 \title{Central England Temperature daily time series}
 \description{
-  Central England Temperature daily time series from the Hadley Center United Kingdom
+  Central England Temperature daily time series from the Hadley Centre United Kingdom
   Meteorological Office, http://www.metoffice.gov.uk/hadobs/hadcet/.
   The data set represents daily CET values recorded to the tenth of a degree Celsius, 
   and contains temperatures for the years 1772 through September 30, 2011.

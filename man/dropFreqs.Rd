@@ -21,8 +21,6 @@
 %
 %     If you wish to report bugs please contact the author. 
 %     karim.rahim@gmail.com
-%     112 Jeffery Hall, Queen's University, Kingston Ontario
-%     Canada, K7L 3N6
 
 \name{dropFreqs}
 \alias{dropFreqs}
@@ -36,7 +34,7 @@
    estimate. This utility is used before calling plot(), to increase the
    visual frequency resolution of a plot by truncating frequencies outside a
    particular band of interest. This function is not a filter, but rather
-   a utilty to allow R to 'zoom' a spectrum plot to a certain frequency band.
+   a utility to allow R to 'zoom' a spectrum plot to a certain frequency band.
 }
 \usage{
 dropFreqs(spec, minFreq, maxFreq)

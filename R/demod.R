@@ -24,8 +24,6 @@
 ## 
 ##     Karim Rahim
 ##     karim.rahim@gmail.com
-##     112 Jeffery Hall, Queen's University, Kingston Ontario
-##     Canada, K7L 3N6
 
 
 ################################################################
@@ -65,16 +63,25 @@
 ################################################################
 demod.dpss <- function(x, 
                        centreFreq, 
-                       NW, 
+                       nw, 
                        blockLen, 
                        stepSize=1, 
-                       wrapphase=TRUE) {
+                       wrapphase=TRUE,
+                       ...) {
 
     stopifnot(stepSize == 1)  ## not implemented
+
+    nwTmp <- list(...)$NW
+    
+    if(!is.null(nwTmp)) {
+        warning("NW has been depreciated. Please use nw instead.")
+        nw <- nwTmp
+    }
+    
     ndata <- length(x)
 
     deltaT <- deltat(x)
-    dw <- dpss(blockLen, 1, NW)$v
+    dw <- dpss(blockLen, 1, nw)$v
     U0 <- sum(dw)
 
     ampScale <- 2.0/U0

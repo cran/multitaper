@@ -46,6 +46,7 @@ spec.mtm <- function(timeSeries,
                      Ftest=FALSE,
                      jackknife=FALSE,
                      jkCIProb=.95,
+                     adaptiveWeighting=TRUE,
                      maxAdaptiveIterations=100,
                      plot=TRUE,
                      na.action=na.fail,
@@ -127,9 +128,18 @@ spec.mtm <- function(timeSeries,
     n <- length(timeSeries)
 
     if(taper=="dpss") {
-        stopifnot(nw >= 0.5, k >= 1, nw <= 500, k <= 1.5+2*nw, n > 8)
+        stopifnot(nw >= 0.5, k >= 1, n > 8)
+        ## replace stop if not with warning.
+        ## the following was also in stopif not:
+        ## nw <= 500, k <= 1.5+2*nw)
+        if( nw > 500) {
+            warning("nw > 500")
+        }
+        if( k > 1.5 * 2*nw ) {
+            warning("k > 1.5+2*nw")
+        }
         if (nw/n > 0.5) { 
-            stop("half-bandwidth parameter (w) is greater than 1/2")
+            warning("half-bandwidth parameter (w) is greater than 1/2")
         }
         if(k==1) {
             Ftest=FALSE
@@ -171,6 +181,7 @@ spec.mtm <- function(timeSeries,
                                   nw=nw, k=k, nFFT=nFFT, 
                                   dpssIN=dpssIN, returnZeroFreq=returnZeroFreq, 
                                   Ftest=Ftest, jackknife=jackknife, jkCIProb=jkCIProb, 
+                                  adaptiveWeighting = adaptiveWeighting, 
                                   maxAdaptiveIterations=maxAdaptiveIterations, 
                                   returnInternals=returnInternals, 
                                   n=n, deltaT=deltaT, sigma2=sigma2, series=series,
@@ -214,6 +225,7 @@ spec.mtm <- function(timeSeries,
                      Ftest,
                      jackknife,
                      jkCIProb,
+                     adaptiveWeighting, 
                      maxAdaptiveIterations,
                      returnInternals,
                      n,
@@ -298,7 +310,7 @@ spec.mtm <- function(timeSeries,
         }
     } else {
         stopifnot(jkCIProb < 1, jkCIProb > .5)
-        if(!is.complex(timeSeries)) {
+        if(!is.complex(timeSeries) & adaptiveWeighting) {
           adaptive <- .mw2jkw(sa, nFreqs, k, sigma2, deltaT, ev)
         } else {
           adaptive <- .mw2jkw(sa, nFFT, k, sigma2, deltaT, ev)
@@ -316,7 +328,7 @@ spec.mtm <- function(timeSeries,
                    lowerCI=lowerCI,
                    maxVal=maxVal,
                    minVal=minVal)
-    }
+   } 
 
    ftestRes <- NULL
 
@@ -335,7 +347,11 @@ spec.mtm <- function(timeSeries,
     
     if(returnInternals) {
         eigenCoef1 <- cft
-        wtCoef1 <- sqrt(adaptive$wt)
+        if(adaptiveWeighting) {
+          wtCoef1 <- sqrt(adaptive$wt)
+        } else {
+          wtCoef <- rep(1, nFreqs)
+        }
     }
     auxiliary <- list(dpss=dpssIN,
                       eigenCoefs=eigenCoef1,
@@ -369,6 +385,7 @@ spec.mtm <- function(timeSeries,
                      spec=adaptive$s,
                      freq=resultFreqs,
                      series=series,
+                     adaptive=adaptiveWeighting, 
                      mtm=auxiliary)
 
     class(spec.out) <- c("mtm", "spec")
@@ -560,7 +577,7 @@ centre <- function(x, nw=NULL, k=NULL, deltaT=NULL, trim=0) {
                            n, k, ssqswz, deltaT)
           res.i <- .mweave(Im(x), dw, swz,
                            n, k, ssqswz, deltaT)
-          res <- x - complex(real=res.r$cntr,imaginary=res.i$cntr)
+          res <- x - complex(real=res.r$cntr, imaginary=res.i$cntr)
         }
     }
     return(res)

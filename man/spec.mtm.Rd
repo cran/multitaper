@@ -21,8 +21,7 @@
 %
 %     If you wish to report bugs please contact the author. 
 %     karim.rahim@gmail.com
-%     Jeffery Hall, Queen's University, Kingston Ontario
-%     Canada, K7L 3N6
+
 
 \name{spec.mtm}
 \alias{spec.mtm}
@@ -34,7 +33,7 @@
 \usage{
 spec.mtm(timeSeries, nw=4.0, k=7, nFFT="default", taper=c("dpss"),
          centre=c("Slepian"), dpssIN=NULL, returnZeroFreq=TRUE,
-         Ftest=FALSE, jackknife=FALSE, jkCIProb=.95,
+         Ftest=FALSE, jackknife=FALSE, jkCIProb=.95, adaptiveWeighting=TRUE,
          maxAdaptiveIterations=100, plot=TRUE, na.action=na.fail,
          returnInternals=FALSE, sineAdaptive=FALSE, sineSmoothFact=0.2,
          dtUnits=c("default"), deltat=NULL, ...) 
@@ -66,6 +65,9 @@ intervals should be computed and returned.}
   \item{jkCIProb}{Decimal value indicating the jackknife probability for
 calculating jackknife confidence intervals. The default returns a
 95\% confidence interval.}
+  \item{adaptiveWeighting}{Boolean flag for enabling/disabling adaptively weighted
+  spectrum estimates. Defaults to \code{TRUE}. The \code{FALSE} case gives complex
+  Fourier transforms equivalent to direct estimates with Slepian sequences as tapers.}
   \item{maxAdaptiveIterations}{Maximum number of iterations in the
 adaptive multitaper calculation. Generally convergence is quick, and should
 require less than 100 iterations.}

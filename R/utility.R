@@ -24,8 +24,6 @@
 ## 
 ##     Karim Rahim
 ##     karim.rahim@gmail.com
-##     112 Jeffery Hall, Queen's University, Kingston Ontario
-##     Canada, K7L 3N6
 
 
 ##############################################################
@@ -39,12 +37,6 @@
 ##############################################################
 multitaperTrend = function(xd, B, deltat, t.in) {
 
-    dT <- match.call(expand.dots = )$dT
-    if(!is.null(dT)) {
-        warning("dT has been depreciated. Use deltat.")
-        deltat <- dT
-    }
-    
     N <- length(t.in)
     w <- B*deltat
     
