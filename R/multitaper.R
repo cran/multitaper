@@ -2,7 +2,7 @@
 ##     Multitaper and spectral analysis package for R
 ##     Copyright (C) 2011 Karim Rahim 
 ##
-##     Written by Karim Rahim and Wesley Burr.
+##     Written by Karim Rahim and Wesley S. Burr.
 ##
 ##     This file is part of the multitaper package for R.
 ##     http://cran.r-project.org/web/packages/multitaper/index.html
@@ -24,9 +24,7 @@
 ## 
 ##     Karim Rahim
 ##     karim.rahim@gmail.com
-##     112 Jeffery Hall, Queen's University, Kingston Ontario
-##     Canada, K7L 3N6
-
+##     
 
 ##############################################################
 ##
@@ -71,7 +69,8 @@ spec.mtm <- function(timeSeries,
         deltaT <- deltat
     }
    
-    dT <- list(...)$dT
+    ##dT <- list(...)$dT
+    dT <- match.call(expand.dots = )$dT
     
     if(missing(deltat) && !is.null(dT)) {
         warning("dT has been depreciated. Use either deltat or input a time series object.")
@@ -185,19 +184,17 @@ spec.mtm <- function(timeSeries,
                                   maxAdaptiveIterations=maxAdaptiveIterations, 
                                   returnInternals=returnInternals, 
                                   n=n, deltaT=deltaT, sigma2=sigma2, series=series,
-                                  dtUnits=dtUnits,
-                                  ...) 
+                                  dtUnits=dtUnits) 
     } else if(taper=="sine") {
         mtm.obj <- .spec.mtm.sine(timeSeries=timeSeries, k=k, sineAdaptive=sineAdaptive,
                                   nFFT=nFFT, dpssIN=dpssIN, returnZeroFreq=returnZeroFreq,
                                   returnInternals=FALSE, n=n, deltaT=deltaT, sigma2=sigma2,
                                   series=series,maxAdaptiveIterations=maxAdaptiveIterations,
-                                  smoothFact=sineSmoothFact, dtUnits=dtUnits,
-                                  ...)
+                                  smoothFact=sineSmoothFact, dtUnits=dtUnits)
     }
 
     if(plot) {
-        plot.mtm(mtm.obj, jackknife=jackknife, ...)
+        plot.mtm(mtm.obj, jackknife=jackknife)
         return(invisible(mtm.obj))
     } else {
         return(mtm.obj)
@@ -209,11 +206,12 @@ spec.mtm <- function(timeSeries,
 ##  .spec.mtm.dpss
 ##
 ##  Computes multitaper spectrum using Slepian tapers
-##  References: Percival and Walden "Spectral Analysis
-##  for Physical Applications" 1993 and associated LISP code
+##  References: 
+##    Percival and Walden "Spectral Analysis
+##    for Physical Applications" 1993 and associated LISP code
 ##
-##   Thomson, D.J. Spectrum Estimation and Harmonic Analysis,
-##   Proceedings of the IEEE, 1982 and associated Fortran code
+##    Thomson, D.J. Spectrum Estimation and Harmonic Analysis,
+##    Proceedings of the IEEE, 1982 and associated Fortran code
 ## 
 ##############################################################
 .spec.mtm.dpss <- function(timeSeries,
@@ -596,8 +594,8 @@ centre <- function(x, nw=NULL, k=NULL, deltaT=NULL, trim=0) {
 ##
 #########################################################################
 
-mtm.coh <- function(mtm1, mtm2,
-                   fr=NULL, tau=0, plot=TRUE,...) {
+mtm.coh <- function(mtm1, mtm2, fr=NULL, tau=0, phcorr = TRUE, 
+                    plot=TRUE,...) {
 
     ## note Dave saves the cft
     ## in ./odinlibs-1.1/src/mw/mw2pakt as weighted
@@ -629,7 +627,6 @@ mtm.coh <- function(mtm1, mtm2,
     blkhif <- nfreqs -1 + blklof
 
     nordP2 <- nord +2
-    phcorr <-  1
     out <- .Fortran("jkcoh1", cft1=as.complex(cft1),
                     cft2=as.complex(cft2), nord=as.integer(nord),
                     blklof=as.integer(blklof), blkhif=as.integer(blkhif),
@@ -662,7 +659,7 @@ mtm.coh <- function(mtm1, mtm2,
     
     
    if(plot) {
-        plot.mtm.coh(coh.out, ...)
+        plot.mtm.coh(coh.out)
         return(invisible(coh.out))
     } else {
         return(coh.out)
