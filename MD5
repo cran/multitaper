@@ -1,13 +1,13 @@
-0d8d9c030e00b0d89043fb4237288e80 *DESCRIPTION
+7070d4f492461e213390c893fedbce02 *DESCRIPTION
 84c140a5fa77fa0bedcaef8ff911bbbc *NAMESPACE
-190a73f3933c88ae003f2d3b2ca16eca *R/demod.R
+158922fb8585ef36eea9f9110348b01a *R/demod.R
 f020d0682c55f16f4c4d9f9ef8a5daf6 *R/dpss.R
 1dd775e5821b980099b20cbaa57f5308 *R/dpssHelpers.R
 bf38c857b5cfaf2f50c878e5a3174583 *R/dropFreqs.R
-24efe60af99950b56f1f894d3e2178bd *R/multitaper.R
+2249d8f8d59d3b8fa0528a77cc979b41 *R/multitaper.R
 032caf4929b973edc5b6a6530f44c79a *R/multitaperHelper.R
-1c5db9e2c571a27f141f5b0b117259df *R/plots.R
-1bca42638366edc6b9d2da431dbde2da *R/plotsHelper.R
+abd53e31c7a1941cbdc92a23f1d3cb46 *R/plots.R
+63c518925fa74d0df6fcc69c67f7a86f *R/plotsHelper.R
 4695a5177397c685dc9b0ff1b155caac *R/sineTaper.R
 19607f017d1c697dbdd1a51d5ce85363 *R/utility.R
 0ce867df06dafbc04fc5b7c02ca7d5fb *configure.ac
@@ -28,7 +28,6 @@ f36f419512253debd725ba41ffb091b5 *man/dpssToEigenvalues.Rd
 1c0c22f4c328a51e8624cdd8c4094649 *man/dropFreqs.Rd
 76c2ad2a390831e4edffa1269476b5c3 *man/mlco2.Rd
 2460db6a7a72850ff31938d63ade6734 *man/mtm.coh.Rd
-68a541f882a0924a217b2aea79de522c *man/multitaper-package.Rd
 9cececef332318d4042ed962ea0ce6e5 *man/multitaperTrend.Rd
 48e56d4715834cc0985d63d01f2527d1 *man/percivalAR4.Rd
 2eff21bd6fcddbbc28c5815838ca32ed *man/plot.mtm.Rd
