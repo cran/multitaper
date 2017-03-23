@@ -1,10 +1,10 @@
-a4522ec93594682226f926a5e117d350 *DESCRIPTION
-dd7e5126510692727c79c4aab520ff64 *NAMESPACE
+b8d0ced411cfd2a5a1fb704744b43d7c *DESCRIPTION
+70631adf61b98492ee8977e7d3f324df *NAMESPACE
 158922fb8585ef36eea9f9110348b01a *R/demod.R
-f020d0682c55f16f4c4d9f9ef8a5daf6 *R/dpss.R
+4e5cfc149316ec71343447fc411f79d9 *R/dpss.R
 1dd775e5821b980099b20cbaa57f5308 *R/dpssHelpers.R
 bf38c857b5cfaf2f50c878e5a3174583 *R/dropFreqs.R
-2249d8f8d59d3b8fa0528a77cc979b41 *R/multitaper.R
+9d87abb00b5e3fa0851b7cd6dd626c66 *R/multitaper.R
 032caf4929b973edc5b6a6530f44c79a *R/multitaperHelper.R
 abd53e31c7a1941cbdc92a23f1d3cb46 *R/plots.R
 63c518925fa74d0df6fcc69c67f7a86f *R/plotsHelper.R
@@ -17,7 +17,7 @@ e66a82df7e015af55fc9b62bba559fb3 *data/HadCRUTnh.rda
 4e8ee469b70c407411723d8ff43a0ae9 *data/mlco2.rda
 3c1cc41d60370a7a43925f50cd1cd49a *data/percivalAR4.rda
 da3c639de98b93d20a8b9aa9b266d77c *data/willamette.rda
-65126874fd4bb28ae11dc82b8afee8c7 *inst/CITATION
+e5699a615042b93842e8ec1725b4944c *inst/CITATION
 6d0e781380cb71b1d9d8b0ca67d26208 *man/CETdaily.Rd
 fa173e3264653a2392ed3bb6c78844fa *man/CETmonthly.Rd
 01317a99b2003dde5a060608fc4c67b4 *man/HadCRUTnh.Rd
@@ -37,6 +37,7 @@ f36f419512253debd725ba41ffb091b5 *man/dpssToEigenvalues.Rd
 73ac2f8237b7b992f6e656241a18b3ec *man/willamette.Rd
 51a291f69722dbe9b45b325366729a13 *src/Makevars
 970c9aac20d1062533bf7a36ff504bbb *src/Makevars.win
-6dbad4c538f127f36897181ae8a430a3 *src/djt.f
-78b50da70a387a87789257bee2b0cbaa *src/dpss.f90
-5fbd14d567aa508b659884c58ffda677 *src/sine.f
+f30e2bf97ff75f4b396c660cdb9ae37f *src/djt.f
+22819b547d53e2461c144f83439486ae *src/dpss.f90
+a30077d87916114eb1950ecf1aa8bd1e *src/multitaper_init.c
+e6e42ac574f31d3a6de07f6e2fe003aa *src/sine.f
