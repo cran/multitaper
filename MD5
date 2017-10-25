@@ -1,10 +1,10 @@
-b8d0ced411cfd2a5a1fb704744b43d7c *DESCRIPTION
+b3a424fae55e2a219db40e1cf1823378 *DESCRIPTION
 70631adf61b98492ee8977e7d3f324df *NAMESPACE
 158922fb8585ef36eea9f9110348b01a *R/demod.R
 4e5cfc149316ec71343447fc411f79d9 *R/dpss.R
 1dd775e5821b980099b20cbaa57f5308 *R/dpssHelpers.R
 bf38c857b5cfaf2f50c878e5a3174583 *R/dropFreqs.R
-9d87abb00b5e3fa0851b7cd6dd626c66 *R/multitaper.R
+c17594d84b25cd58555c072f7224223e *R/multitaper.R
 032caf4929b973edc5b6a6530f44c79a *R/multitaperHelper.R
 abd53e31c7a1941cbdc92a23f1d3cb46 *R/plots.R
 63c518925fa74d0df6fcc69c67f7a86f *R/plotsHelper.R
@@ -33,7 +33,7 @@ f36f419512253debd725ba41ffb091b5 *man/dpssToEigenvalues.Rd
 2eff21bd6fcddbbc28c5815838ca32ed *man/plot.mtm.Rd
 1948c0ecd9dd72670adbdb6fefcfffd7 *man/plot.mtm.coh.Rd
 22c1c068adff4656669ad89d6a982d7c *man/sineTaper.Rd
-22bffbd2df3c7d6567ac305c2352dedd *man/spec.mtm.Rd
+d5d38a92917d9ec17cfbed66ca3dd992 *man/spec.mtm.Rd
 73ac2f8237b7b992f6e656241a18b3ec *man/willamette.Rd
 51a291f69722dbe9b45b325366729a13 *src/Makevars
 970c9aac20d1062533bf7a36ff504bbb *src/Makevars.win
