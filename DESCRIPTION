@@ -1,5 +1,5 @@
 Package: multitaper
-Version: 1.0-16
+Version: 1.0-17
 Title: Spectral Analysis Tools using the Multitaper Method
 Author: Karim Rahim <karim.rahim@queensu.ca>, Wesley S. Burr <wesleyburr@trentu.ca>
 Maintainer: Karim Rahim <karim.rahim@queensu.ca>
@@ -11,6 +11,6 @@ ByteCompile: true
 LazyData: true
 URL: https://github.com/krahim/multitaper/
 NeedsCompilation: yes
-Packaged: 2023-07-20 05:26:10 UTC; karim
+Packaged: 2023-07-20 11:37:23 UTC; karim
 Repository: CRAN
-Date/Publication: 2023-07-20 06:00:03 UTC
+Date/Publication: 2023-07-20 12:00:02 UTC
