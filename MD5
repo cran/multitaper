@@ -1,4 +1,4 @@
-45cba9860dfef6b1075e953f8fb8cdd4 *DESCRIPTION
+687f85cf4385554fa64f17ce5882c96b *DESCRIPTION
 70631adf61b98492ee8977e7d3f324df *NAMESPACE
 158922fb8585ef36eea9f9110348b01a *R/demod.R
 4e5cfc149316ec71343447fc411f79d9 *R/dpss.R
@@ -37,7 +37,7 @@ f36f419512253debd725ba41ffb091b5 *man/dpssToEigenvalues.Rd
 73ac2f8237b7b992f6e656241a18b3ec *man/willamette.Rd
 51a291f69722dbe9b45b325366729a13 *src/Makevars
 970c9aac20d1062533bf7a36ff504bbb *src/Makevars.win
-f30e2bf97ff75f4b396c660cdb9ae37f *src/djt.f
+217b2b1158ea546bf8c2f25e110ada85 *src/djt.f
 22819b547d53e2461c144f83439486ae *src/dpss.f90
 a30077d87916114eb1950ecf1aa8bd1e *src/multitaper_init.c
 e6e42ac574f31d3a6de07f6e2fe003aa *src/sine.f
